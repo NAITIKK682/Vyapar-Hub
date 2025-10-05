@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4CAF50">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <title>VyaparHub - Developed by Naitik Kushwaha</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">VyaparHub</h1>
+                <div class="header-controls">
+                    <button id="theme-toggle" class="icon-btn">
+                        <span class="material-icons">brightness_6</span>
+                    </button>
+                    <button id="menu-toggle" class="icon-btn">
+                        <span class="material-icons">menu</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="app-nav" id="main-nav">
+            <div class="nav-content">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <span class="material-icons">store</span>
+                    </div>
+                    <div class="user-details">
+                        <h3>Shop Owner</h3>
+                        <p>Welcome to VyaparHub</p>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item active" data-section="dashboard">
+                        <span class="material-icons">dashboard</span>
+                        <span>Dashboard</span>
+                    </li>
+                    <li class="nav-item" data-section="shop">
+                        <span class="material-icons">shopping_cart</span>
+                        <span>Shop Management</span>
+                    </li>
+                    <li class="nav-item" data-section="billing">
+                        <span class="material-icons">receipt</span>
+                        <span>GST Billing</span>
+                    </li>
+                    <li class="nav-item" data-section="customer">
+                        <span class="material-icons">person</span>
+                        <span>Customer Utilities</span>
+                    </li>
+                    <li class="nav-item" data-section="weather">
+                        <span class="material-icons">cloud</span>
+                        <span>Weather</span>
+                    </li>
+                    <li class="nav-item" data-section="tools">
+                        <span class="material-icons">calculate</span>
+                        <span>Tools</span>
+                    </li>
+                    <li class="nav-item" data-section="chatbot">
+                        <span class="material-icons">chat</span>
+                        <span>AI Chatbot</span>
+                    </li>
+                </ul>
+                <div class="developer-info">
+                    <p>Developed by Naitik Kushwaha</p>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="app-main">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="section active">
+                <div class="section-header">
+                    <h2>Dashboard</h2>
+                    <p>Real-time business overview</p>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="card stat-card">
+                        <div class="card-content">
+                            <h3 id="today-sales">₹0</h3>
+                            <p>Today's Sales</p>
+                            <div class="trend positive">
+                                <span class="material-icons">trending_up</span>
+                                <span>+12%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card stat-card">
+                        <div class="card-content">
+                            <h3 id="monthly-sales">₹0</h3>
+                            <p>Monthly Sales</p>
+                            <div class="trend positive">
+                                <span class="material-icons">trending_up</span>
+                                <span>+8%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card stat-card">
+                        <div class="card-content">
+                            <h3 id="low-stock">0</h3>
+                            <p>Low Stock Items</p>
+                            <div class="trend negative">
+                                <span class="material-icons">warning</span>
+                                <span>Check Now</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card stat-card">
+                        <div class="card-content">
+                            <h3 id="pending-bills">0</h3>
+                            <p>Pending Bills</p>
+                            <div class="trend neutral">
+                                <span class="material-icons">pending</span>
+                                <span>View All</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Recent Transactions</h3>
+                        <button class="icon-btn">
+                            <span class="material-icons">refresh</span>
+                        </button>
+                    </div>
+                    <div class="card-content">
+                        <div class="transaction-list" id="transaction-list">
+                            <p class="empty-state">No recent transactions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Quick Actions</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="quick-actions">
+                            <button class="action-btn" data-action="new-bill">
+                                <span class="material-icons">add_shopping_cart</span>
+                                <span>New Bill</span>
+                            </button>
+                            <button class="action-btn" data-action="add-product">
+                                <span class="material-icons">inventory</span>
+                                <span>Add Product</span>
+                            </button>
+                            <button class="action-btn" data-action="check-weather">
+                                <span class="material-icons">cloud</span>
+                                <span>Weather</span>
+                            </button>
+                            <button class="action-btn" data-action="emi-calculator">
+                                <span class="material-icons">calculate</span>
+                                <span>EMI Calculator</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Shop Management Section -->
+            <section id="shop" class="section">
+                <div class="section-header">
+                    <h2>Shop Management</h2>
+                    <p>Manage your products and inventory</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Products</h3>
+                        <button class="btn primary" id="add-product-btn">
+                            <span class="material-icons">add</span>
+                            <span>Add Product</span>
+                        </button>
+                    </div>
+                    <div class="card-content">
+                        <div class="search-bar">
+                            <span class="material-icons">search</span>
+                            <input type="text" id="product-search" placeholder="Search products...">
+                        </div>
+                        <div class="product-list" id="product-list">
+                            <p class="empty-state">No products found</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Inventory Alerts</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="alert-list" id="alert-list">
+                            <p class="empty-state">No low stock alerts</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Sales Reports</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="report-filters">
+                            <select id="report-period">
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                            </select>
+                            <button class="btn secondary" id="generate-report">
+                                <span class="material-icons">download</span>
+                                <span>Export Report</span>
+                            </button>
+                        </div>
+                        <div class="sales-chart">
+                            <canvas id="sales-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GST Billing Section -->
+            <section id="billing" class="section">
+                <div class="section-header">
+                    <h2>GST Billing</h2>
+                    <p>Create invoices with GST calculation</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>New Invoice</h3>
+                    </div>
+                    <div class="card-content">
+                        <form id="billing-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Customer Name</label>
+                                    <input type="text" id="customer-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Mobile Number</label>
+                                    <input type="tel" id="customer-mobile">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Items</label>
+                                <div class="items-container" id="items-container">
+                                    <div class="item-row">
+                                        <input type="text" placeholder="Product Name" class="item-name">
+                                        <input type="number" placeholder="Qty" class="item-qty" min="1" value="1">
+                                        <input type="number" placeholder="Price" class="item-price" step="0.01">
+                                        <select class="item-gst">
+                                            <option value="0">0% GST</option>
+                                            <option value="5">5% GST</option>
+                                            <option value="12">12% GST</option>
+                                            <option value="18" selected>18% GST</option>
+                                            <option value="28">28% GST</option>
+                                        </select>
+                                        <button type="button" class="icon-btn remove-item">
+                                            <span class="material-icons">delete</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn secondary" id="add-item-btn">
+                                    <span class="material-icons">add</span>
+                                    <span>Add Item</span>
+                                </button>
+                            </div>
+                            
+                            <div class="billing-summary">
+                                <div class="summary-row">
+                                    <span>Subtotal:</span>
+                                    <span id="subtotal">₹0.00</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>GST (18%):</span>
+                                    <span id="gst-amount">₹0.00</span>
+                                </div>
+                                <div class="summary-row total">
+                                    <span>Total:</span>
+                                    <span id="total-amount">₹0.00</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn secondary" id="save-draft">
+                                    <span class="material-icons">save</span>
+                                    <span>Save Draft</span>
+                                </button>
+                                <button type="submit" class="btn primary">
+                                    <span class="material-icons">print</span>
+                                    <span>Generate Bill</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Customer Utilities Section -->
+            <section id="customer" class="section">
+                <div class="section-header">
+                    <h2>Customer Utilities</h2>
+                    <p>Notes, wallet, and expense tracker</p>
+                </div>
+                
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="notes">Notes</button>
+                    <button class="tab-btn" data-tab="wallet">Wallet</button>
+                    <button class="tab-btn" data-tab="expenses">Expenses</button>
+                    <button class="tab-btn" data-tab="todo">To-Do</button>
+                </div>
+                
+                <div class="tab-content active" id="notes-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Quick Notes</h3>
+                            <button class="btn primary" id="add-note-btn">
+                                <span class="material-icons">add</span>
+                                <span>Add Note</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <div class="notes-list" id="notes-list">
+                                <p class="empty-state">No notes yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="wallet-tab">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="wallet-balance">
+                                <h3>Wallet Balance</h3>
+                                <h2 id="wallet-amount">₹0.00</h2>
+                            </div>
+                            <div class="wallet-actions">
+                                <button class="btn primary" id="add-money-btn">
+                                    <span class="material-icons">add</span>
+                                    <span>Add Money</span>
+                                </button>
+                                <button class="btn secondary" id="withdraw-money-btn">
+                                    <span class="material-icons">remove</span>
+                                    <span>Withdraw</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Transaction History</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="transaction-history" id="wallet-history">
+                                <p class="empty-state">No transactions yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="expenses-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Add Expense</h3>
+                        </div>
+                        <div class="card-content">
+                            <form id="expense-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Amount</label>
+                                        <input type="number" id="expense-amount" step="0.01" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Category</label>
+                                        <select id="expense-category">
+                                            <option value="rent">Rent</option>
+                                            <option value="utilities">Utilities</option>
+                                            <option value="supplies">Supplies</option>
+                                            <option value="marketing">Marketing</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea id="expense-description" rows="2"></textarea>
+                                </div>
+                                <button type="submit" class="btn primary">
+                                    <span class="material-icons">add</span>
+                                    <span>Add Expense</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Expense Summary</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="expense-summary">
+                                <div class="summary-item">
+                                    <h4>This Month</h4>
+                                    <p id="monthly-expense">₹0.00</p>
+                                </div>
+                                <div class="summary-item">
+                                    <h4>Today</h4>
+                                    <p id="daily-expense">₹0.00</p>
+                                </div>
+                            </div>
+                            <div class="expense-chart">
+                                <canvas id="expense-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="todo-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>To-Do List</h3>
+                            <button class="btn primary" id="add-todo-btn">
+                                <span class="material-icons">add</span>
+                                <span>Add Task</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <div class="todo-list" id="todo-list">
+                                <p class="empty-state">No tasks yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weather Section -->
+            <section id="weather" class="section">
+                <div class="section-header">
+                    <h2>Indian Weather</h2>
+                    <p>Real-time weather information by PIN code</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <div class="weather-search">
+                            <input type="text" id="pincode-input" placeholder="Enter PIN code" maxlength="6">
+                            <button class="btn primary" id="get-weather-btn">
+                                <span class="material-icons">search</span>
+                                <span>Get Weather</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card weather-card" id="weather-result" style="display: none;">
+                    <div class="card-content">
+                        <div class="weather-header">
+                            <h3 id="weather-location">Location</h3>
+                            <p id="weather-date">Today</p>
+                        </div>
+                        <div class="weather-main">
+                            <div class="weather-icon">
+                                <span class="material-icons" id="weather-icon">wb_sunny</span>
+                            </div>
+                            <div class="weather-temp">
+                                <h2 id="weather-temp">--°C</h2>
+                                <p id="weather-desc">--</p>
+                            </div>
+                        </div>
+                        <div class="weather-details">
+                            <div class="weather-detail">
+                                <span class="material-icons">opacity</span>
+                                <div>
+                                    <p>Humidity</p>
+                                    <p id="humidity">--%</p>
+                                </div>
+                            </div>
+                            <div class="weather-detail">
+                                <span class="material-icons">air</span>
+                                <div>
+                                    <p>Wind Speed</p>
+                                    <p id="wind-speed">-- km/h</p>
+                                </div>
+                            </div>
+                            <div class="weather-detail">
+                                <span class="material-icons">speed</span>
+                                <div>
+                                    <p>Pressure</p>
+                                    <p id="pressure">-- hPa</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tools Section -->
+            <section id="tools" class="section">
+                <div class="section-header">
+                    <h2>Business Tools</h2>
+                    <p>Essential calculators and utilities</p>
+                </div>
+                
+                <div class="tools-grid">
+                    <div class="card tool-card" data-tool="emi">
+                        <div class="card-content">
+                            <div class="tool-icon">
+                                <span class="material-icons">calculate</span>
+                            </div>
+                            <h3>EMI Calculator</h3>
+                            <p>Calculate loan EMIs instantly</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card tool-card" data-tool="currency">
+                        <div class="card-content">
+                            <div class="tool-icon">
+                                <span class="material-icons">currency_exchange</span>
+                            </div>
+                            <h3>Currency Converter</h3>
+                            <p>Live INR exchange rates</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card tool-card" data-tool="qr">
+                        <div class="card-content">
+                            <div class="tool-icon">
+                                <span class="material-icons">qr_code</span>
+                            </div>
+                            <h3>QR Tools</h3>
+                            <p>Generate and scan QR codes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card tool-card" data-tool="festival">
+                        <div class="card-content">
+                            <div class="tool-icon">
+                                <span class="material-icons">celebration</span>
+                            </div>
+                            <h3>Festival Calendar</h3>
+                            <p>Indian festivals and holidays</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- EMI Calculator -->
+                <div class="tool-detail" id="emi-calculator">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>EMI Calculator</h3>
+                            <button class="icon-btn close-tool">
+                                <span class="material-icons">close</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <form id="emi-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Loan Amount (₹)</label>
+                                        <input type="number" id="loan-amount" step="1000" min="1000" value="100000">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Interest Rate (%)</label>
+                                        <input type="number" id="interest-rate" step="0.1" min="0.1" value="10">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Loan Tenure (Months)</label>
+                                    <input type="number" id="loan-tenure" min="1" max="360" value="12">
+                                </div>
+                                <button type="button" class="btn primary" id="calculate-emi">
+                                    <span class="material-icons">calculate</span>
+                                    <span>Calculate EMI</span>
+                                </button>
+                            </form>
+                            
+                            <div class="emi-result" id="emi-result" style="display: none;">
+                                <div class="result-item">
+                                    <h4>Monthly EMI</h4>
+                                    <p id="monthly-emi">₹0</p>
+                                </div>
+                                <div class="result-item">
+                                    <h4>Total Payment</h4>
+                                    <p id="total-payment">₹0</p>
+                                </div>
+                                <div class="result-item">
+                                    <h4>Total Interest</h4>
+                                    <p id="total-interest">₹0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Currency Converter -->
+                <div class="tool-detail" id="currency-converter">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Currency Converter</h3>
+                            <button class="icon-btn close-tool">
+                                <span class="material-icons">close</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <div class="converter-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Amount</label>
+                                        <input type="number" id="convert-amount" value="1" step="0.01">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>From</label>
+                                        <select id="from-currency">
+                                            <option value="INR">INR - Indian Rupee</option>
+                                            <option value="USD">USD - US Dollar</option>
+                                            <option value="EUR">EUR - Euro</option>
+                                            <option value="GBP">GBP - British Pound</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>To</label>
+                                        <select id="to-currency">
+                                            <option value="USD">USD - US Dollar</option>
+                                            <option value="EUR">EUR - Euro</option>
+                                            <option value="GBP">GBP - British Pound</option>
+                                            <option value="INR" selected>INR - Indian Rupee</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button class="btn primary" id="convert-currency">
+                                    <span class="material-icons">swap_horiz</span>
+                                    <span>Convert</span>
+                                </button>
+                            </div>
+                            
+                            <div class="conversion-result" id="conversion-result">
+                                <h3 id="converted-amount">1 USD = 83.00 INR</h3>
+                                <p id="exchange-rate">Exchange rate: 83.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- QR Tools -->
+                <div class="tool-detail" id="qr-tools">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>QR Code Generator & Scanner</h3>
+                            <button class="icon-btn close-tool">
+                                <span class="material-icons">close</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <div class="tabs">
+                                <button class="tab-btn active" data-tab="generate">Generate</button>
+                                <button class="tab-btn" data-tab="scan">Scan</button>
+                            </div>
+                            
+                            <div class="tab-content active" id="generate-tab">
+                                <div class="form-group">
+                                    <label>Enter Text or URL</label>
+                                    <textarea id="qr-text" rows="3" placeholder="Enter text to generate QR code"></textarea>
+                                </div>
+                                <button class="btn primary" id="generate-qr">
+                                    <span class="material-icons">qr_code</span>
+                                    <span>Generate QR Code</span>
+                                </button>
+                                <div class="qr-result" id="qr-result" style="display: none;">
+                                    <canvas id="qr-canvas"></canvas>
+                                    <button class="btn secondary" id="download-qr">
+                                        <span class="material-icons">download</span>
+                                        <span>Download QR</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-content" id="scan-tab">
+                                <div class="scanner-placeholder">
+                                    <span class="material-icons">photo_camera</span>
+                                    <p>QR Scanner will be available in mobile app</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Festival Calendar -->
+                <div class="tool-detail" id="festival-calendar">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Indian Festival Calendar</h3>
+                            <button class="icon-btn close-tool">
+                                <span class="material-icons">close</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <div class="festival-list" id="festival-list">
+                                <div class="festival-item">
+                                    <div class="festival-date">
+                                        <h4>Jan 14</h4>
+                                        <p>2024</p>
+                                    </div>
+                                    <div class="festival-info">
+                                        <h3>Makar Sankranti</h3>
+                                        <p>Harvest festival celebrated across India</p>
+                                    </div>
+                                </div>
+                                <div class="festival-item">
+                                    <div class="festival-date">
+                                        <h4>Jan 26</h4>
+                                        <p>2024</p>
+                                    </div>
+                                    <div class="festival-info">
+                                        <h3>Republic Day</h3>
+                                        <p>National holiday celebrating India's constitution</p>
+                                    </div>
+                                </div>
+                                <div class="festival-item">
+                                    <div class="festival-date">
+                                        <h4>Mar 08</h4>
+                                        <p>2024</p>
+                                    </div>
+                                    <div class="festival-info">
+                                        <h3>Holi</h3>
+                                        <p>Festival of colors</p>
+                                    </div>
+                                </div>
+                                <div class="festival-item">
+                                    <div class="festival-date">
+                                        <h4>Apr 10</h4>
+                                        <p>2024</p>
+                                    </div>
+                                    <div class="festival-info">
+                                        <h3>Eid al-Fitr</h3>
+                                        <p>Festival marking the end of Ramadan</p>
+                                    </div>
+                                </div>
+                                <div class="festival-item">
+                                    <div class="festival-date">
+                                        <h4>Aug 15</h4>
+                                        <p>2024</p>
+                                    </div>
+                                    <div class="festival-info">
+                                        <h3>Independence Day</h3>
+                                        <p>India's Independence Day</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chatbot Section -->
+            <section id="chatbot" class="section">
+                <div class="section-header">
+                    <h2>AI Chatbot</h2>
+                    <p>Hindi-English assistant with voice commands</p>
+                </div>
+                
+                <div class="card chat-container">
+                    <div class="card-header">
+                        <h3>Vyapar Assistant</h3>
+                        <button class="icon-btn" id="voice-btn">
+                            <span class="material-icons">mic</span>
+                        </button>
+                    </div>
+                    <div class="card-content chat-content">
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="message bot-message">
+                                <div class="message-content">
+                                    Hello! I'm your Vyapar Assistant. How can I help you today?
+                                </div>
+                                <div class="message-time">Just now</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="chat-input-container">
+                            <input type="text" id="chat-input" placeholder="Type your message...">
+                            <button class="btn primary" id="send-message">
+                                <span class="material-icons">send</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Quick Commands</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="quick-commands">
+                            <button class="command-btn">Create invoice</button>
+                            <button class="command-btn">Add product</button>
+                            <button class="command-btn">Check weather</button>
+                            <button class="command-btn">Calculate EMI</button>
+                            <button class="command-btn">Show sales report</button>
+                            <button class="command-btn">Add expense</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Invoice Modal -->
+    <div class="modal" id="invoice-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Invoice Preview</h3>
+                <button class="icon-btn close-modal">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="invoice-preview" id="invoice-preview">
+                    <div class="invoice-header">
+                        <h2>VyaparHub</h2>
+                        <p>Developed by Naitik Kushwaha</p>
+                        <p>Invoice #<span id="invoice-number">INV-001</span></p>
+                        <p>Date: <span id="invoice-date">--/--/----</span></p>
+                    </div>
+                    <div class="invoice-customer">
+                        <p><strong>Customer:</strong> <span id="invoice-customer-name">--</span></p>
+                        <p><strong>Mobile:</strong> <span id="invoice-customer-mobile">--</span></p>
+                    </div>
+                    <div class="invoice-items">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Qty</th>
+                                    <th>Price</th>
+                                    <th>GST</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="invoice-items-body">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="invoice-total">
+                        <p><strong>Subtotal:</strong> ₹<span id="invoice-subtotal">0.00</span></p>
+                        <p><strong>GST:</strong> ₹<span id="invoice-gst">0.00</span></p>
+                        <p class="total"><strong>Total:</strong> ₹<span id="invoice-total">0.00</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn secondary" id="download-invoice">
+                    <span class="material-icons">download</span>
+                    <span>Download PDF</span>
+                </button>
+                <button class="btn primary" id="print-invoice">
+                    <span class="material-icons">print</span>
+                    <span>Print</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
